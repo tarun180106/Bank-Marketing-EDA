@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Analysis | BankInsights</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/subscriptions.js"></script>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="brand">Bank<span>Insights</span></div>
+
+        <p class="menu-label">ANALYTICS</p>
+
+        <a href="/" class="nav-link">Dashboard Overview</a>
+        <a href="/subscriptions" class="nav-link active">Subscription Analysis</a>
+
+        <div class="sidebar-note">
+            <span class="status-dot"></span>
+            <span>Marketing Analytics</span>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">CAMPAIGN ANALYTICS</p>
+                <h1>Subscription Analysis</h1>
+                <p class="subtitle">
+                    Explore term-deposit subscriptions and compare customer conversion rates.
+                </p>
+            </div>
+
+            <div class="live-label">
+                <span class="status-dot"></span>
+                Dataset Connected
+            </div>
+        </header>
+
+        <!-- Subscription outcome summary -->
+        <section class="section-heading">
+            <div>
+                <h2>Subscription Outcomes</h2>
+                <p>Compare customers who subscribed with those who did not.</p>
+            </div>
+        </section>
+
+        <div class="chart-grid">
+
+            <article class="chart-card">
+                <div class="chart-heading">
+                    <h3>Subscription Distribution</h3>
+                    <p>Number of customers by subscription outcome</p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="subscriptionChart"></canvas>
+                </div>
+            </article>
+
+            <article class="chart-card">
+                <div class="chart-heading">
+                    <h3>Subscription Rate by Job</h3>
+                    <p>Percentage of customers subscribing in each job category</p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="jobChart"></canvas>
+                </div>
+            </article>
+
+            <article class="chart-card">
+                <div class="chart-heading">
+                    <h3>Average Call Duration</h3>
+                    <p>Average call duration by subscription outcome</p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="durationChart"></canvas>
+                </div>
+            </article>
+
+        </div>
+
+        <footer>
+            Bank Marketing Analytics · Built with Python, Flask and Chart.js
+        </footer>
+
+    </main>
+
+    <script src="/js/subscriptions.js"></script>
+</body>
+</html>

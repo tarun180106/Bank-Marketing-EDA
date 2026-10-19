@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Marketing Analytics</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="brand">Bank<span>Insights</span></div>
+        <p class="menu-label">ANALYTICS</p>
+        <a href="/" class="nav-link active">Dashboard Overview</a>
+        <a href="/subscriptions" class="nav-link">Subscription Analysis</a>
+        <div class="sidebar-note">
+            <span class="status-dot"></span>
+            <span>Marketing Analytics</span>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">DATA ANALYTICS PROJECT</p>
+                <h1>Bank Marketing Dashboard</h1>
+                <p class="subtitle">Understand customer behaviour and term-deposit subscriptions.</p>
+            </div>
+            <div class="live-label"><span class="status-dot"></span> Dataset Connected</div>
+        </header>
+        <section class="filters-section">
+    <div class="filters-heading">
+        <div>
+            <h2>Filter Customers</h2>
+            <p>Select categories to update the dashboard.</p>
+        </div>
+        <button id="resetFilters" type="button">Reset Filters</button>
+    </div>
+    <button id="exportCSV" type="button">Export CSV</button>
+    <div class="filters-grid">
+        <div class="filter-group">
+            <label for="jobFilter">Job</label>
+            <select id="jobFilter">
+                <option value="all">All Jobs</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="educationFilter">Education</label>
+            <select id="educationFilter">
+                <option value="all">All Education Levels</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="maritalFilter">Marital Status</label>
+            <select id="maritalFilter">
+                <option value="all">All Marital Statuses</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="contactFilter">Contact Type</label>
+            <select id="contactFilter">
+                <option value="all">All Contact Types</option>
+            </select>
+        </div>
+    </div>
+</section>
+
+        <section id="overview">
+            <div class="section-heading">
+                <div>
+                    <h2>Overview</h2>
+                    <p>Key metrics from the bank marketing dataset</p>
+                </div>
+            </div>
+
+            <div class="kpi-grid">
+                <article class="kpi-card">
+                    <p>Total Customers</p>
+                    <h2 id="totalCustomers">—</h2>
+                    <span>Records analysed</span>
+                </article>
+                <article class="kpi-card">
+                    <p>Subscribers</p>
+                    <h2 id="subscribers">—</h2>
+                    <span>Term deposit: yes</span>
+                </article>
+                <article class="kpi-card">
+                    <p>Subscription Rate</p>
+                    <h2 id="subscriptionRate">—</h2>
+                    <span>Percentage of customers</span>
+                </article>
+                <article class="kpi-card">
+                    <p>Average Customer Age</p>
+                    <h2 id="averageAge">—</h2>
+                    <span>Years</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="charts">
+            <div class="section-heading">
+                <div>
+                    <h2>Subscription Analysis</h2>
+                    <p>Explore subscription outcomes and job-wise rates</p>
+                </div>
+            </div>
+
+            <div class="chart-grid">
+                <article class="chart-card">
+                    <div class="chart-heading">
+                        <h3>Subscription Distribution</h3>
+                        <p>Customers who subscribed vs. those who did not</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="subscriptionChart"></canvas>
+                    </div>
+                </article>
+
+                <article class="chart-card">
+                    <div class="chart-heading">
+                        <h3>Subscription Rate by Job</h3>
+                        <p>Percentage of customers subscribing in each job category</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="jobChart"></canvas>
+                    </div>
+                </article>
+            </div>
+            
+<div class="chart-grid extra-charts">
+    <article class="chart-card">
+        <div class="chart-heading">
+            <h3>Monthly Subscription Outcomes</h3>
+            <p>Successful vs unsuccessful subscriptions by month</p>
+        </div>
+        <div class="chart-container">
+            <canvas id="monthlyChart"></canvas>
+        </div>
+    </article>
+
+    <article class="chart-card">
+        <div class="chart-heading">
+            <h3>Customer Age Distribution</h3>
+            <p>Number of customers in each age group</p>
+        </div>
+        <div class="chart-container">
+            <canvas id="ageChart"></canvas>
+        </div>
+    </article>
+
+    <article class="chart-card">
+        <div class="chart-heading">
+            <h3>Average Call Duration</h3>
+            <p>Comparison by subscription outcome</p>
+        </div>
+        <div class="chart-container">
+            <canvas id="durationChart"></canvas>
+        </div>
+    </article>
+</div>
+
+<section class="insights-section">
+        <section class="insights-section">
+    <div class="insights-heading">
+        <h2>Key Insights &amp; Recommendations</h2>
+        <p>Automatically generated from the selected customer segment.</p>
+    </div>
+
+    <div id="insightsContainer" class="insights-grid">
+        <p>Loading insights...</p>
+    </div>
+</section>
+    <h2>Key Insights</h2>
+    <div class="insight-list">
+        <article class="insight-card">
+            <span class="insight-number">01</span>
+            <div>
+                <h3>Subscription Imbalance</h3>
+                <p>Most customers did not subscribe. Evaluate the subscription rate alongside the total number of customers.</p>
+            </div>
+        </article>
+        <article class="insight-card">
+            <span class="insight-number">02</span>
+            <div>
+                <h3>Job-Wise Differences</h3>
+                <p>Subscription rates differ across job categories, helping identify groups for further analysis.</p>
+            </div>
+        </article>
+        <article class="insight-card">
+            <span class="insight-number">03</span>
+            <div>
+                <h3>Call Duration</h3>
+                <p>Compare average call duration for subscribers and non-subscribers to understand their association.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+        </section>
+
+        <footer>
+            Bank Marketing Analytics · Built with Python, Flask and Chart.js
+        </footer>
+    </main>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
